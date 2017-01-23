@@ -1,12 +1,23 @@
 package main
 
-import (
-	"fmt"
+import "fmt"
 
-	"github.com/exced/golearn/01_syntax/helloworld"
+const (
+	pi     = 3.14
+	myName = "Thomas"
 )
 
+func wrapper() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
+}
+
 func main() {
-	// This is a comment
-	fmt.Println(helloworld.SayHello(helloworld.WorldString))
+	var inString string
+	fmt.Println("Enter your name")
+	fmt.Scan(&inString)
+	fmt.Println("Hello ", inString)
 }
