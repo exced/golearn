@@ -30,4 +30,16 @@ func main() {
 
 	s3 = append(s3[:2], s4[3:]...)
 	fmt.Println(s3)
+
+	// slice of slice are accepted in Go but its your responsibility to initialize it
+	s5 := make([][]int, 0, 3)
+
+	for i := 0; i < 3; i++ {
+		aux := make([]int, 0, 4)
+		for j := 0; j < 4; j++ {
+			aux = append(aux, j)
+		}
+		s5 = append(s5, aux)
+	}
+	fmt.Println(s5)
 }
